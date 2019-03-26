@@ -1,9 +1,14 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
+from django.contrib.auth.decorators import login_required
 
 def welcome(request):
     return render(request, 'welcome.html')
+
+@login_required(login_url='/accounts/login/')
+def article(request, article_id):
+    
 
 def news_of_day(request):
     date = dt.date.today()
