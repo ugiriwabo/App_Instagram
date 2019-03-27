@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 class Image(models.Model):
     image=models.ImageField(upload_to = 'images/')
     name = models.CharField(max_length =30)
@@ -12,3 +14,13 @@ class Image(models.Model):
         
     def save_image(self):
         self.save() 
+
+    @classmethod
+    def get_image(cls,id):
+        Image.objects.all()
+
+class Profile(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    username=models.CharField(max_length =30)
+    profile_photo = models.ImageField(upload_to = 'pic/')
+    bio=models.CharField(max_length =30)
