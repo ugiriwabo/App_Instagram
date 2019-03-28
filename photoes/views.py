@@ -1,11 +1,9 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
+from .forms import ProfileForm
 from django.contrib.auth.decorators import login_required
-
-# from django.shortcuts import render,redirect
-# from .forms import ProfileForm,ImageForm
-# from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm,ImageForm
 from .models import Profile,Image
 
 
