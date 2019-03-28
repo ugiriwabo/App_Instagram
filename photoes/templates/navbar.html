@@ -9,7 +9,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'profile' %}">Instagram Clone App</a>
+      <a class="navbar-brand" href="{% url 'profile' %}">Instagram App</a>
     </div>
   </div>
  
@@ -27,7 +27,7 @@
 
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="{%url 'profile'%}">Home</a>
+          <a href="{%url 'welcome'%}">Home</a>
         </li>
         <li>
           <a href="/accounts/password/change">Change Password</a>
@@ -36,7 +36,10 @@
           <a href="/logout">Logout</a>
         </li>
         <li>
-          <a href="{% url 'profile' %}">View Profile</a>
+          <a href="{% url 'profile' %}">create Profile</a>
+        </li>
+        <li>
+          <a href="{% url 'view_profile' %}">view Profile</a>
         </li>
       </ul>
     </li>

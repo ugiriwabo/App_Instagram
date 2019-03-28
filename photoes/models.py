@@ -21,10 +21,21 @@ class Image(models.Model):
 
 class Profile(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    post = HTMLField()
     username=models.CharField(max_length =30)
     profile_photo = models.ImageField(upload_to = 'pic/')
     bio=models.CharField(max_length =30)
 
+
     def save_profile(self):
         self.save() 
+    
+    @classmethod
+    def get_profile(cls,id):
+        Profile.objects.all()
+
+    def delete_profile(self):
+       self.delete()
+
+    def update_bio(self,bio):
+         self.bio=bio
+         self.save()

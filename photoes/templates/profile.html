@@ -2,37 +2,38 @@
 {% block content %} 
 
 
-{% load bootstrap3 %} {% load staticfiles %}
-<!DOCTYPE html>
-<html>
+  {% load bootstrap3 %} 
+  {% load staticfiles %}
+  <!DOCTYPE html>
+  <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>New Profile</title>
-  {{form.media}}
+      <title>New Profile</title>
+      {{form.media}}
 
-{% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/news.css' %}"> {% endblock %}
+      {% block styles %} {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/news.css' %}"> {% endblock %}
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-  <form  action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
+      <form  action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
 
-    {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-  </form>
+        {% bootstrap_form form%}
+        <input type="submit" class="btn btn-success btn-lg" value="Post">
+      </form>
 
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
+      {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %} {% endblock %}
 
-</body>
+    </body>
 
-</html>
+  </html>
 
 {% endblock %}
