@@ -43,5 +43,7 @@ class Profile(models.Model):
     @classmethod
     def search_by_profile(cls,search_term):
         profile_photo=Profile.objects.filter(name__icontains=search_term)
-        images = cls.objects.filter(profile=profile)
+        images = cls.objects.filter( profile_photo= profile_photo)
         return images
+
+        
