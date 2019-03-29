@@ -9,6 +9,7 @@ from .models import Profile,Image,Comment
 @login_required(login_url='/accounts/login/')
 def welcome(request):
     img = Image.objects.all()
+    search = Profile.objects.all()
     return render(request,'welcome.html',{"img": img})
 
 @login_required(login_url='/accounts/login/')
@@ -72,9 +73,9 @@ def display_commentForm(request):
         if form.is_valid():
             comment = form.save(commit=False)
             image.user = current_user
-            image.save()
+            comment.save()
         return redirect('welcome')
 
     else:
-        form = UploadImageForm()
+        form = CommentForm()
     return render(request, 'comment.html', {"form": form})        
