@@ -3,9 +3,7 @@
 {% block content %}
     {{block.super}}
     <h1> <center>Welcome to the instagram</center> </h1>
-    {%for x in image%}
-
-    <p>{{profile.bio}}</p>
+    {%for x in img%}
     <img src="{{x.image.url}}">
 
 {%endfor%}
