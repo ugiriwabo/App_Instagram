@@ -46,4 +46,15 @@ class Profile(models.Model):
         images = cls.objects.filter( profile_photo= profile_photo)
         return images
 
-        
+class Comment(models.Model):  
+    comment=models.CharField(max_length =80)
+
+    def save_comment(self):
+        self.save() 
+
+    @classmethod
+    def get_comment(cls,id):
+        Comments.objects.all()
+    
+    def __str__(self):
+        return self.comment
