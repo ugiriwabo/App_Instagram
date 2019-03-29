@@ -4,10 +4,9 @@
     {{block.super}}
     <h1> <center>Welcome to the instagram</center> </h1>
     {%for x in img%}
+    <p>{{x.name}}</p>
     <img src="{{x.image.url}}">   
     <p><a href="{%url 'comment'%}" class="btn btn-primary ">Add Comment</a></p>
     <p><a href="{%url 'view_comment'%}" class="btn btn-primary ">View Comment</a></p>
 {%endfor%}
-<!-- {%for y in comments%}    
-    {%endfor%} -->
 {% endblock %}
