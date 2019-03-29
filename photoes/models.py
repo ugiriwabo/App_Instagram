@@ -39,12 +39,6 @@ class Profile(models.Model):
     def update_bio(self,bio):
          self.bio=bio
          self.save()
-         
-    @classmethod
-    def search_by_profile(cls,search_term):
-        profile_photo=Profile.objects.filter(name__icontains=search_term)
-        images = cls.objects.filter( profile_photo= profile_photo)
-        return images
 
 class Comment(models.Model):  
     user=models.ForeignKey(User,on_delete=models.CASCADE)
