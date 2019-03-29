@@ -1,0 +1,10 @@
+{%extends 'all-instagram/base.html'%}
+
+{%block content%}
+
+    {% for y in comments %}   
+    <p>{{y.comment}}</p>
+    {% endfor %}
+    
+
+{%endblock%}

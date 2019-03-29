@@ -47,6 +47,7 @@ class Profile(models.Model):
         return images
 
 class Comment(models.Model):  
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     comment=models.CharField(max_length =80)
 
     def save_comment(self):

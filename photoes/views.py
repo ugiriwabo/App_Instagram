@@ -10,7 +10,8 @@ from .models import Profile,Image,Comment
 def welcome(request):
     img = Image.objects.all()
     search = Profile.objects.all()
-    return render(request,'welcome.html',{"img": img})
+    comments = Comment.objects.all()
+    return render(request,'welcome.html',{"img": img,"comments":comments})
 
 @login_required(login_url='/accounts/login/')
 def my_profile(request):
@@ -72,10 +73,16 @@ def display_commentForm(request):
         form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment = form.save(commit=False)
-            image.user = current_user
+            comment.user = current_user
             comment.save()
-        return redirect('welcome')
+        return redirect('view_comment')
 
     else:
         form = CommentForm()
-    return render(request, 'comment.html', {"form": form})        
+    return render(request, 'comment.html', {"form": form}) 
+
+@login_required(login_url='/accounts/login/')
+def view_comment(request):
+    current_user=request.user
+    comments=Comment.objects.filter(user=current_user.id) 
+    return render(request,'my_comment.html',{'comments':comments})       
