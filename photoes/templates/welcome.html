@@ -2,17 +2,16 @@
 
 {% block content %}
     {{block.super}}
-    <h1> <center>Welcome to the instagram</center> </h1>
+    <h1> <center><strong><u>Welcome to the instagram</u></strong></center> </h1>
     {%for x in img%}
     <div class="col-md-4">
         <div class="thumbnail" style="background-color:gainsboro; width:350px; height: 280px;">
-        <p style="text-align: center"><strong>{{x.name}}</strong></p>
-        <img style="width:200; height:160;"  class="img-thumbnail" src="{{x.image.url}}">
-        <p style="margin-left:60px;">
-        <a href="{%url 'comment'%}" class="btn btn-primary ">Add Comment</a>
-        <a href="{%url 'view_comment'%}" class="btn btn-primary ">View Comment</a>
-        </p>
-   
+            <a style="text-align: center" href="{%url 'view_profile'%}"><center><strong>{{x.name}}</strong></center></a>
+            <img style="width:200; height:160;"  class="img-thumbnail" src="{{x.image.url}}">
+            <p style="margin-left:60px;">
+            <a href="{%url 'comment'%}" class="btn btn-primary ">Add Comment</a>
+            <a href="{%url 'view_comment'%}" class="btn btn-primary ">View Comment</a>
+            </p>
         </div>
     </div>
     {%endfor%}

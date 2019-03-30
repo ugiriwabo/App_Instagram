@@ -1,8 +1,17 @@
 {%extends 'all-instagram/base.html'%}
 
 {%block content%}
-<center>
-    <p><strong>{{profile.bio}}</strong></p>
-    <img src="{{profile.profile_photo.url}}" class="img-circle" width="304" height="236">
-</center>
+    <center>
+        <h3><strong>{{profile.bio}}</strong></h3>
+        <img src="{{profile.profile_photo.url}}" class="img-circle" width="304" height="236">
+    </center>
+    {%for s in img%}
+        {{block.super}}
+        <div class="col-md-4">
+            <div class="thumbnail" style="background-color:gainsboro; width:350px; height: 280px;">
+                <p style="text-align: center"><strong>{{s.name}}</strong></p>
+                <img style="width:200; height:160;"  class="img-thumbnail" src="{{s.image.url}}">
+            </div>
+        </div>
+    {% endfor %}
 {%endblock%}
