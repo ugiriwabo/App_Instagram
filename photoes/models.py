@@ -19,6 +19,8 @@ class Image(models.Model):
     def get_image(cls,id):
         Image.objects.all()
 
+    
+
 class Profile(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     username=models.CharField(max_length =30)
@@ -39,6 +41,12 @@ class Profile(models.Model):
     def update_bio(self,bio):
          self.bio=bio
          self.save()
+
+    @classmethod
+    def search_by_user(cls,search_term):
+        user=Profile.objects.filter(name__icontains=search_term)
+        users = cls.objects.filter(user=user)
+        return users
 
 class Comment(models.Model):  
     user=models.ForeignKey(User,on_delete=models.CASCADE)
