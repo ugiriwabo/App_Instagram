@@ -21,3 +21,9 @@ This project is for creating the popular photo app Instagram. The user of the ap
 * HTML
 * CSS
 * Bootstrap
+
+### Link to live site on GitHub Pages
+https://github.com/ugiriwabo/App_Instagram
+
+### Contact Information
+For more information you may need, contact me at ugiraconsole@gmail.com
