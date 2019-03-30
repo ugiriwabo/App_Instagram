@@ -1,17 +1,25 @@
-{%extends 'all-instagram/base.html'%}
+{%extends 'registration/base.html'%}
 
-{%block content%}
+{% block content %}
+    {{block.super}}
     <center>
-        <h3><strong>{{profile.bio}}</strong></h3>
-        <img src="{{profile.profile_photo.url}}" class="img-circle" width="304" height="236">
-    </center>
-    {%for s in img%}
-        {{block.super}}
-        <div class="col-md-4">
-            <div class="thumbnail" style="background-color:gainsboro; width:350px; height: 280px;">
-                <p style="text-align: center"><strong>{{s.name}}</strong></p>
-                <img style="width:200; height:160;"  class="img-thumbnail" src="{{s.image.url}}">
-            </div>
+            <h3><strong>{{profile.bio}}</strong></h3>
+            <img src="{{profile.profile_photo.url}}" class="img-circle" width="304" height="236">
+        </center>
+    {%for x in img%}
+    <div class="col-md-4">
+        <div class="thumbnail" style="background-color:gainsboro; width:350px; height: 280px;">
+            <a style="text-align: center" href="{%url 'view_profile'%}"><center><strong>{{x.name}}</strong></center></a>
+            <img style="width:200; height:160;"  class="img-thumbnail" src="{{x.image.url}}">
+            <p style="margin-left:60px;">
+            <a href="{%url 'comment'%}" class="btn btn-primary ">Add Comment</a>
+            <a href="{%url 'view_comment'%}" class="btn btn-primary ">View Comment</a>
+            </p>
         </div>
-    {% endfor %}
-{%endblock%}
+    </div>
+    {%endfor%}
+{% endblock %}
+
+
+    
+    

@@ -32,9 +32,10 @@ def my_profile(request):
 def view_profile(request):
     current_user=request.user
     profile=Profile.objects.get(user=current_user.id) 
+    img = Image.objects.all()
     images=Profile.get_profile(profile.user_id)
 
-    return render(request,'my_profile.html',{'profile':profile,'images':images})
+    return render(request,'my_profile.html',{'profile':profile,'images':images,'img':img})
 
 
 @login_required(login_url='/accounts/login/')
