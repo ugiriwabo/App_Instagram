@@ -1,1 +1,3 @@
-# App_Instagram
+# APP NAME
+
+Instagram
