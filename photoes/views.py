@@ -54,13 +54,13 @@ def upload_image(request):
     return render(request, 'image.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def search_results(request):
-    if 'user' in request.GET and request.GET["user"]:
-        search_term = request.GET.get("user")
-        searched_users = Image.search_by_user(search_term)
+def search_user(request):
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        users = Image.search_user(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"users": searched_users})
+        return render(request, 'search.html',{"message":message,"users":users})
 
     else:
         message = "You haven't searched for any term"

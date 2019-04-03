@@ -19,7 +19,10 @@ class Image(models.Model):
     def get_image(cls,id):
         Image.objects.all()
 
-    
+    @classmethod
+    def search_user(cls,search_term):
+        users=Image.objects.filter(name__icontains=search_term)
+        return users
 
 class Profile(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -41,12 +44,6 @@ class Profile(models.Model):
     def update_bio(self,bio):
          self.bio=bio
          self.save()
-
-    @classmethod
-    def search_by_user(cls,search_term):
-        user=Profile.objects.filter(name__icontains=search_term)
-        users = cls.objects.filter(user=user)
-        return users
 
 class Comment(models.Model):  
     user=models.ForeignKey(User,on_delete=models.CASCADE)

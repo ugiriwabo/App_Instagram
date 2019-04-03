@@ -12,12 +12,11 @@
   </div>
 
   <div class="row">
-
       {% if users %}
-      {% for name in users %}
+      {% for names in users %}
         <div class="col-sm-6 col-md-3">
-            <h1>{{user.name}}</h1>
-            <img src="{{name.image.url}}" alt="">
+            <h1>{{names.name}}</h1>
+            <img src="{{names.image.url}}">
         </div>
       {% endfor %}
     {% endif %}
